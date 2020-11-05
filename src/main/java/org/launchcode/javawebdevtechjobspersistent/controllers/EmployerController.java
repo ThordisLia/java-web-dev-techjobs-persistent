@@ -21,6 +21,7 @@ public class EmployerController {
 
     @GetMapping("add")
     public String displayAddEmployerForm(Model model) {
+        model.addAttribute("title", "Create Employer");
         model.addAttribute(new Employer());
         return "employers/add";
     }
@@ -43,9 +44,10 @@ public class EmployerController {
                 Employer employer = (Employer) optEmployer.get();
                 model.addAttribute("title", "Employer with ID: " + employerId);
                 model.addAttribute("employer", employer);
+                return "employers/view";
             } else {
                 model.addAttribute("title", "Invalid Employer ID: " + employerId);
             }
-        return "employers/view";
+        return "redirect:";
     }
 }
