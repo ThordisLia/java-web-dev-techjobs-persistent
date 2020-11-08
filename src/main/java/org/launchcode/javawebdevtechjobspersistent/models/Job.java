@@ -1,6 +1,7 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Job extends AbstractEntity{
@@ -8,12 +9,13 @@ public class Job extends AbstractEntity{
 
     private String skills;
 
-    private String employer;
+    @ManyToOne
+    private Employer employer;
 
     public Job() {
     }
 
-    public Job(String anEmployer, String someSkills) {
+    public Job(Employer anEmployer, String someSkills) {
         super();
         this.employer = anEmployer;
         this.skills = someSkills;
@@ -22,8 +24,16 @@ public class Job extends AbstractEntity{
     // Getters and setters.
 
 
-    public String getEmployer() {
+    public Employer getEmployer() {
         return employer;
+    }
+
+    public void setSkills(String skills) {
+        this.skills = skills;
+    }
+
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
     }
 
     public String getSkills() {
