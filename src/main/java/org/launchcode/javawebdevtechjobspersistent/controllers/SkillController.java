@@ -47,6 +47,6 @@ public class SkillController {
         } else {
             model.addAttribute("title", "Invalid Skill ID: " + skillId);
         }
-        return "redirect:.../";
+        return "redirect:";
     }
 }
